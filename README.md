@@ -3,12 +3,12 @@
 4.1 Fundamentos de MySQL:
 
 1. Crea la base de datos.[X]
-2. Inserta valores a la bases de datos.
+2. Inserta valores a la bases de datos. [X]
 3. Crea un repositorio en Github.[X]
 
-4.2 CRUD MySQL:
+4.2 CRUD MySQL: [X]
 
-1.  Consultas sobre las películas
+1.  Consultas sobre las películas.
 2.  Consultas sobre los actores.
 3.  Consultas sobre los usuarios.
 4.  Bonus: Agrega más campos a las tablas.
