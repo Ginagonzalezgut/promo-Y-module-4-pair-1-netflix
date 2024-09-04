@@ -13,11 +13,11 @@
 3.  Consultas sobre los usuarios.
 4.  Bonus: Agrega más campos a las tablas.
 
-4.3 Diagramas y relaciones MySQL:
+4.3 Diagramas y relaciones MySQL: [X]
 
 1.  Piensa qué relación es
 2.  Crea la relación User-Movies.
-3.  Crea la relación Movies-Actors.
+3.  Crea la relación Movies-Actors. ?
 
 4.4 Fundamentos de Express JS:
 
