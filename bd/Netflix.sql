@@ -103,12 +103,12 @@ WHERE fk_users = 3 AND fk_movies = 2;
 
 CREATE TABLE movies_has_actors (
 fk_movies INT,
-fk_actors int
+fk_actors INT
 );
 
+-- 4
+-- Buscar cuantas películas como favorita tiene cada usuario.
 
-
-
-
-
+SELECT COUNT(*) FROM users_has_movies 
+GROUP BY fk_users;
 
