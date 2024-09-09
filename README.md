@@ -19,7 +19,7 @@
 2.  Crea la relación User-Movies.
 3.  Crea la relación Movies-Actors. ?
 
-4.4 Fundamentos de Express JS:
+4.4 Fundamentos de Express JS: [X]
 
 1.  Descarga el proyecto
 2.  Arranca el backend
