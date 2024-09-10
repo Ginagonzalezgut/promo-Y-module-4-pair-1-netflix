@@ -29,9 +29,9 @@
 
 4.5 Express JS con MySQL:
 
-1.  Pide todas las películas
-2.  Servidor de estáticos para React
-3.  Servidor de estáticos para las fotos
+1.  Pide todas las películas [X]
+2.  Servidor de estáticos para React [X]
+3.  Servidor de estáticos para las fotos []
 
 4.6 Peticiones con parámetros:
 
