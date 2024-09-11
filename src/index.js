@@ -27,13 +27,34 @@ server.listen(serverPort, () => {
 server.get("/movies", async function (req, res) {
   const connection = await getDBConnection();
 
-  const squlQuery = "SELECT * FROM movies";
-  const [moviesResult] = await connection.query(squlQuery);
+  // const squlQuery = "SELECT * FROM movies";
+  // const [moviesResult] = await connection.query(squlQuery);
+
+  const genreFilterParam = req.query.genre;
+  // const sqlFilterGenre = "SELECT * FROM movies WHERE genre = ?";
+  // const [resultFilterGender] = await connection.query(sqlFilterGenre, [
+  //   genreFilterParam,
+  // ]);
+  let sqlQuery;
+  let queryParams = [];
+
+  if (genreFilterParam) {
+    // Si hay un filtro de género, arma la consulta con el WHERE
+    sqlQuery = "SELECT * FROM movies WHERE genre = ?";
+    queryParams = [genreFilterParam]; // El valor del filtro
+  } else {
+    // Si no hay filtro, selecciona todas las películas
+    sqlQuery = "SELECT * FROM movies";
+  }
+
+  // Ejecuta la consulta SQL (con o sin filtro de género)
+  const [result] = await connection.query(sqlQuery, queryParams);
+
   connection.end();
 
   res.status(200).json({
     success: true,
-    movies: moviesResult,
+    movies: result,
   });
 });
 
