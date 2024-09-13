@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const mysql = require("mysql2/promise");
+const bcrypt = require("bcrypt");
 
 // create and config server
 const server = express();
@@ -68,7 +69,6 @@ server.get("/movie/:movieId", async (req, res) => {
 
   const query = "SELECT * FROM movies WHERE idMovies = ?";
   const [result] = await connection.query(query, [req.params.movieId]);
-  console.log(result);
   connection.end();
 
   res.render("movies", { movie: result[0] });
@@ -76,3 +76,29 @@ server.get("/movie/:movieId", async (req, res) => {
 
 const staticServerPath = "src/public-react";
 server.use(express.static(staticServerPath));
+
+//registro
+server.post("/sign-up", async (req, res) => {
+  const { user, password, name, email, plan_details } = req.body;
+  const connection = await getDBConnection();
+  const passwordHashed = await bcrypt.hash(password, 10);
+
+  const query =
+    "INSERT INTO users (user, password, name, email, plan_details) VALUES (?, ?, ?, ?, ?)";
+  const [newUserResult] = await connection.query(query, [
+    user,
+    passwordHashed,
+    name,
+    email,
+    plan_details,
+  ]);
+  console.log(newUserResult);
+  connection.end();
+
+  res.status(201).json({
+    success: true,
+    message: newUserResult.insertId,
+  });
+});
+
+//login
